@@ -215,18 +215,31 @@ export default function Home() {
         </TabsList>
         <div className="mt-4 space-y-4">
           <div>
+          <div className="flex items-center gap-2 mb-1">
             <label
               htmlFor="json-input"
               className="block text-sm font-semibold mb-1"
             >
               JSON Input
             </label>
-            <Textarea
-              id="json-input"
-              placeholder="Paste your JSON here"
-              value={jsonInput}
-              onChange={(e) => setJsonInput(e.target.value)}
-              className="h-64"
+            <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <HelpCircle className="h-4 w-4" />
+              </TooltipTrigger>
+              <TooltipContent className="max-w-sm">
+                <p>Put your original JSON for your transfers here.</p>
+              
+              </TooltipContent>
+            </Tooltip>
+            </TooltipProvider>
+          </div>
+          <Textarea
+            id="json-input"
+            placeholder="Paste your JSON here"
+            value={jsonInput}
+            onChange={(e) => setJsonInput(e.target.value)}
+            className="h-64"
             />
           </div>
           <TabsContent value="multiply" className="space-y-4">
